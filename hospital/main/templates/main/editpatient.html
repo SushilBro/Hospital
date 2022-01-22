@@ -1,0 +1,50 @@
+{%extends "main/base.html"%}
+{%block content%}
+{% load crispy_forms_tags%}
+<form method="POST" enctype="multipart/form-data" action="/updatePatientDiscription/{{dis.id}}">  
+        {% csrf_token %} 
+        {{ form }}
+        
+    <div class="container">  
+<br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Update Details</h3>  
+    </div>  
+  </div>   
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Patient Name</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="ename" required maxlength="30" value="{{ dis.patientName }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Used Medicine</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="eemail" required maxlength="30" value="{{ dis.usedMedicine }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Disease Name</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="econtact" required maxlength="15" value="{{ dis.diseaseName }}" />  
+    </div>  
+  </div>  
+
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Medicine Uses</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="econtact" required maxlength="15" value="{{ dis.medicineUses }}" />  
+    </div>  
+  </div>  
+   
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" value="update" class="btn btn-success">Update</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+{%endblock%}
